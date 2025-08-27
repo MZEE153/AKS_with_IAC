@@ -1,8 +1,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: default
+pool: default
 
 stages:
 - stage: stageone_Planning 
