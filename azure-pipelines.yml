@@ -18,7 +18,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Envt /Dev'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Envt/Dev'
         backendServiceArm: 'Vinod_Sub_Service_connection'
         backendAzureRmStorageAccountName: 'mzeestg21'
         backendAzureRmContainerName: 'terrafromtfstate'
@@ -28,5 +28,5 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Envt /Dev'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Envt/Dev'
         environmentServiceNameAzureRM: 'Vinod_Sub_Service_connection'
