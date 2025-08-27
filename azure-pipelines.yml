@@ -1,0 +1,30 @@
+trigger:
+- main
+
+pool:
+  vmImage: default
+
+stages:
+- stage: stageone_Planning 
+  displayName: Planning Stage
+  jobs:
+  - job:
+    displayName: Init & Plan
+    steps:
+    - task: TerraformTask@5
+      displayName: init task
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/AKS_with_IAC/Envt /Dev'
+        backendServiceArm: 'Vinod_Sub_Service_connection'
+        backendAzureRmStorageAccountName: 'mzeestg21'
+        backendAzureRmContainerName: 'terrafromtfstate'
+        backendAzureRmKey: 'tfstatefile'
+    - task: TerraformTask@5
+      displayName: Apply
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/AKS_with_IAC/Envt /Dev'
+        environmentServiceNameAzureRM: 'Vinod_Sub_Service_connection'
